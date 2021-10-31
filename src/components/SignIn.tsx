@@ -17,15 +17,16 @@ export const SignIn: ComponentType = () => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <Form className={classes.form} autoComplete="off">
-        <div className={classes.inputGroup}>
+        <header>Please, sign in</header>
+        <div className={classes.formGroup}>
           <label className={classes.label}>Username</label>
           <Field className={classes.input} type="text" name="username" />
         </div>
-        <div className={classes.inputGroup}>
+        <div className={classes.formGroup}>
           <label className={classes.label}>Password</label>
           <Field className={classes.input} type="password" name="password" />
         </div>
-        <div className={classes.inputGroup}>
+        <div className={classes.formGroup}>
           <button className={classes.button} type="submit">
             OK
           </button>

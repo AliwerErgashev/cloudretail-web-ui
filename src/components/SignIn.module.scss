@@ -1,21 +1,41 @@
+@mixin spacing($size: 2) {
+  display: grid;
+  gap: $size * 4px;
+}
+
+.container {
+  height: 100vh;
+  margin-top: 100px;
+}
+
 .form {
+  @include spacing();
+  padding: 16px 0;
   margin: 0 auto;
   max-width: 320px;
 }
 
-.inputGroup {
-  margin: 8px 0;
+.formGroup {
+  @include spacing(1);
 }
 
 .label {
+  color: #555;
   display: block;
 }
 
 .input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
   display: block;
+  padding: 8px 16px;
   width: 100%;
 }
 
 .button {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #555;
+  padding: 8px 16px;
   width: 100%;
 }
