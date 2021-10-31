@@ -8,9 +8,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 /** @type {import('webpack').WebpackOptionsNormalized} */
 module.exports = {
-  entry: {
-    index: [path.resolve(__dirname, 'src/index.scss'), path.resolve(__dirname, 'src/index.tsx')],
-  },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
