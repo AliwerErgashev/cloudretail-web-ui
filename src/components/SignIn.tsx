@@ -1,9 +1,23 @@
 import { Field, Form, Formik } from 'formik';
 import { ComponentType } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import { SignInRequestPayload } from '../reducers/authReducer';
 import { signIn } from '../thunks/authThunk';
-import classes from './SignIn.module.scss';
+import { Button } from './common/Button';
+
+const StyledForm = styled(Form)`
+  display: grid;
+  gap: 8px;
+  margin: 0 auto;
+  max-width: 320px;
+  padding: 16px 0;
+`;
+
+const FormGroup = styled.div`
+  display: grid;
+  gap: 8px;
+`;
 
 const initialValues: SignInRequestPayload = { username: '', password: '' };
 
@@ -16,22 +30,20 @@ export const SignIn: ComponentType = () => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form className={classes.form} autoComplete="off">
-        <header>Please, sign in</header>
-        <div className={classes.formGroup}>
-          <label className={classes.label}>Username</label>
-          <Field className={classes.input} type="text" name="username" />
-        </div>
-        <div className={classes.formGroup}>
-          <label className={classes.label}>Password</label>
-          <Field className={classes.input} type="password" name="password" />
-        </div>
-        <div className={classes.formGroup}>
-          <button className={classes.button} type="submit">
-            OK
-          </button>
-        </div>
-      </Form>
+      <StyledForm autoComplete="off">
+        <h1>Please, sign in</h1>
+        <FormGroup>
+          <label>Username</label>
+          <Field type="text" name="username" />
+        </FormGroup>
+        <FormGroup>
+          <label>Password</label>
+          <Field type="password" name="password" />
+        </FormGroup>
+        <FormGroup>
+          <Button type="submit">OK</Button>
+        </FormGroup>
+      </StyledForm>
     </Formik>
   );
 };

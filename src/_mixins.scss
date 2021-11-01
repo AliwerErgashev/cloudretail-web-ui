@@ -1,0 +1,4 @@
+@mixin spacing($size: 2) {
+  display: grid;
+  gap: $size * 4px;
+}

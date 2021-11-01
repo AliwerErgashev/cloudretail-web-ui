@@ -1,15 +1,20 @@
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import { history } from './common/history';
 import { store } from './common/store';
 import { App } from './components/App';
-import './index.scss';
+import { GlobalStyle } from './components/GlobalStyle';
+import { theme } from './theme';
 
 render(
   <Provider store={store}>
     <Router history={history}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
     </Router>
   </Provider>,
   document.querySelector('#app')

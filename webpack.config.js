@@ -1,31 +1,15 @@
 /* eslint-disable */
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-
-const isProduction = process.env.NODE_ENV === 'production';
 
 /** @type {import('webpack').WebpackOptionsNormalized} */
 module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' }), new MiniCssExtractPlugin()],
-  optimization: {
-    minimizer: [new CssMinimizerWebpackPlugin(), '...'],
-  },
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
   stats: { modules: false },
   module: {
     rules: [
-      {
-        test: /\.(css|sass|scss)$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
-      },
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
