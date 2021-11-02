@@ -6,7 +6,7 @@
     "build": "NODE_ENV=production webpack",
     "format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "start": "NODE_ENV=development webpack serve"
+    "start": "NODE_ENV=development dotenv -e override.env -e .env webpack serve"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
@@ -33,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "babel-loader": "^8.2.3",
+    "dotenv-cli": "^4.1.0",
     "eslint": "^8.1.0",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.4.1",

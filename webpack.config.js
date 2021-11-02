@@ -19,6 +19,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    proxy: { '/api': { target: 'http://localhost:3000', pathRewrite: { '^/api': '' } } },
+    proxy: { '/api': { pathRewrite: { '^/api': '' }, target: process.env.API_URL } },
   },
 };
