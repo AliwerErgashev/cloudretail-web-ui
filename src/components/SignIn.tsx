@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
 import { Field, Form, Formik } from 'formik';
 import { ComponentType } from 'react';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
 import { SignInRequestPayload } from '../reducers/authReducer';
 import { signIn } from '../thunks/authThunk';
 import { Button } from './common/Button';

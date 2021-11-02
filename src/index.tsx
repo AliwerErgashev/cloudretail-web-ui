@@ -1,7 +1,7 @@
+import { ThemeProvider } from '@emotion/react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import { history } from './common/history';
 import { store } from './common/store';
 import { App } from './components/App';

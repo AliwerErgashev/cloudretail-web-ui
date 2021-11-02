@@ -1,16 +1,15 @@
 export const theme = {
   borderColor: '#ddd',
-  borderRadius: '0.5em',
-  fontFamily:
-    "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+  borderRadius: '0.3em',
+  fontFamily: 'Roboto, sans-serif',
   fontSize: '16px',
   primaryColor: '#0d6efd',
   textColor: '#555',
 } as const;
 
-type Theme = typeof theme;
+type AppTheme = typeof theme;
 
-declare module 'styled-components' {
+declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends Theme {}
+  export interface Theme extends AppTheme {}
 }

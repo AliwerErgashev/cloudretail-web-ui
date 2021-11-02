@@ -1,6 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { css, Global } from '@emotion/react';
+import { theme } from '../theme';
 
-export const GlobalStyle = createGlobalStyle`
+const globalStyles = css`
   *,
   *::before,
   *::after {
@@ -12,9 +13,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${(props) => props.theme.textColor};
-    font-family: ${(props) => props.theme.fontFamily};
-    font-size: ${(props) => props.theme.fontSize};
+    color: ${theme.textColor};
+    font-family: ${theme.fontFamily};
+    font-size: ${theme.fontSize};
   }
 
   body,
@@ -33,9 +34,13 @@ export const GlobalStyle = createGlobalStyle`
 
   input,
   button {
-    border: 1px solid ${(props) => props.theme.borderColor};
-    border-radius: ${(props) => props.theme.borderRadius};
+    border: 1px solid ${theme.borderColor};
+    border-radius: ${theme.borderRadius};
     display: block;
     padding: 8px 16px;
   }
 `;
+
+export const GlobalStyle = () => {
+  return <Global styles={globalStyles} />;
+};
