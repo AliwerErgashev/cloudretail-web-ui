@@ -1,9 +1,9 @@
 FROM node:14-alpine as build
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 COPY . ./
-RUN npm run build
+RUN yarn build
 RUN find ./dist -type f | xargs gzip -k
 
 FROM nginx
