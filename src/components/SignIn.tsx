@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Field, Form, Formik } from 'formik';
 import { ComponentType } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { SignInRequestPayload } from '../reducers/authReducer';
 import { signIn } from '../thunks/authThunk';
 import { Button } from './common/Button';
@@ -23,9 +24,10 @@ const initialValues: SignInRequestPayload = { username: '', password: '' };
 
 export const SignIn: ComponentType = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values: SignInRequestPayload) => {
-    dispatch(signIn(values));
+    dispatch(signIn({ navigate, ...values }));
   };
 
   return (
