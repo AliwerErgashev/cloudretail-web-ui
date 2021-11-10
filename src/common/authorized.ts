@@ -10,7 +10,7 @@ export const authorized = <P>(Component: ComponentType<P>) => {
     if (auth.isSignedIn) {
       return React.createElement(Component, props);
     }
-    if (auth.isSigningIn) {
+    if (auth.isInitializing || auth.isSigningIn) {
       return React.createElement('h1', {}, signingInMessage);
     }
     return React.createElement(Navigate, { to: signInUrl });

@@ -4,7 +4,7 @@ import { ComponentType } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { SignInRequestPayload } from '../reducers/authReducer';
-import { signIn } from '../thunks/authThunk';
+import { createToken } from '../thunks/authThunk';
 import { Button } from './common/Button';
 
 const StyledForm = styled(Form)`
@@ -26,8 +26,8 @@ export const SignIn: ComponentType = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (values: SignInRequestPayload) => {
-    dispatch(signIn({ navigate, ...values }));
+  const handleSubmit = (credentials: SignInRequestPayload) => {
+    dispatch(createToken({ navigate, credentials }));
   };
 
   return (

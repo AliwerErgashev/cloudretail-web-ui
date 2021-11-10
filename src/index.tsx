@@ -3,9 +3,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from './common/store';
+import { theme } from './common/theme';
 import { App } from './components/App';
 import { GlobalStyle } from './components/GlobalStyle';
-import { theme } from './theme';
 
 render(
   <Provider store={store}>

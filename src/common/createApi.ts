@@ -1,23 +1,23 @@
 import { apiPrefix } from './constants';
 import { fetchJson } from './fetchJson';
 
-export const createApi = <T = unknown>(path: string) => {
+export const createApi = <T = unknown, U = T>(path: string) => {
   const fullPath = `${apiPrefix}/${path}`;
   return {
-    fetchAll: <U = T>() => {
+    fetchAll: () => {
       return fetchJson<U[]>('GET', fullPath);
     },
-    fetch: <U>(id: string) => {
+    fetch: (id: string) => {
       return fetchJson<U>('GET', `${fullPath}/${id}`);
     },
-    create: <U = T>(body: unknown) => {
+    create: (body: T) => {
       return fetchJson<U>('POST', fullPath, body);
     },
-    update: <U = T>(id: string, body: unknown) => {
+    update: (id: string, body: T) => {
       return fetchJson<U>('PUT', `${fullPath}/${id}`, body);
     },
-    delete: <U = void>(id: string) => {
-      return fetchJson<U>('DELETE', `${fullPath}/${id}`);
+    delete: (id: string) => {
+      return fetchJson<void>('DELETE', `${fullPath}/${id}`);
     },
   };
 };
