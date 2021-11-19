@@ -1,5 +1,15 @@
 import { createApi } from './createApi';
 
-export const tokenApi = createApi<{ username: string; password: string }, { id: string }>(
-  'access-tokens'
-);
+type Credentials = {
+  username: string;
+  password: string;
+};
+
+type AccessToken = {
+  id: string;
+  created_at: string;
+  user_id: string;
+  user: { username: string };
+};
+
+export const tokenApi = createApi<Credentials, AccessToken>('access-tokens');

@@ -38,9 +38,10 @@ export const { actions: authActions, reducer: authReducer } = createSlice({
       state.isInitializing = false;
       state.isSigningIn = true;
     });
-    builder.addCase(fetchToken.fulfilled, (state) => {
+    builder.addCase(fetchToken.fulfilled, (state, { payload }) => {
       state.isSigningIn = false;
       state.isSignedIn = true;
+      state.user = payload.user;
     });
     builder.addCase(fetchToken.rejected, (state) => {
       state.isSigningIn = false;

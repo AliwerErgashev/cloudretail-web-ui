@@ -9,14 +9,15 @@ type Navigate = {
 
 export const fetchToken = createAsyncThunk('restoreSession', async ({ navigate }: Navigate) => {
   const tokenId = window.localStorage.getItem('token');
-  if (typeof tokenId !== 'string') {
-    return;
-  }
   try {
+    if (typeof tokenId !== 'string') {
+      throw new Error('No token');
+    }
     const token = await tokenApi.fetch(tokenId);
     return token;
   } catch (error) {
     navigate(signInUrl);
+    throw error;
   }
 });
 
