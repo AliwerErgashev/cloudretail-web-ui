@@ -12,7 +12,7 @@ export const App: ComponentType = () => {
 
   useEffect(() => {
     dispatch(fetchToken({ navigate }));
-  }, []);
+  }, [dispatch, navigate]);
 
   return (
     <Routes>

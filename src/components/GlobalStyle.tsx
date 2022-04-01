@@ -14,7 +14,6 @@ const globalStyles = css`
 
   body {
     color: ${theme.textColor};
-    font-family: ${theme.fontFamily};
     font-size: ${theme.fontSize};
   }
 
